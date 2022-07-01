@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue@3"></script>
+    <title>Estudiante Final</title>
+</head>
+
+<body>
+    <div id="myApp">
+        <h2 style="font-family: Times New Roman">Ingreso estudiantes:</h2>
+
+        <!--v-model permite atar propiedades reactivas a un elemento-->
+        <table>
+            <td>
+                <tr><h4 style="color:blue">Nombre: </h4></tr>
+                <tr><input type="text" v-model="nombre" v-on:keypress.enter="eventoFinal"></tr>
+            </td>
+            <td>
+                <tr><h4 style="color:blue">Apellido: </h4></tr>
+                <tr><input type="text" v-model="apellido" v-on:keypress.enter="eventoFinal"></tr>
+            </td>
+            <td>
+                <tr><h4 style="color:blue">Edad: </h4></tr>
+                <tr><input type="text" v-model="edad" v-on:keypress.enter="eventoFinal"></tr>
+            </td> 
+        </table>
+        <hr>
+
+        <!--Desestructuración con dos campos
+        <ul>
+            <li v-for="({nombre, apellido, edad},index) in lista">
+                <h3>{{index+1}} - {{nombre}} - {{apellido}} - {{edad}}</h3>     
+            </li>
+        </ul>
+        -->
+
+        <!--v-on directiva para eventos-->
+        <button v-on:click="agregarEstudianteInicio(I)">Agregar estudiante inicio</button>
+        <button v-on:click="agregarEstudianteFin(F)">Agregar estudiante fin</button>
+        <button v-on:click="agregarEstudianteNuevo">Agregar estudiante nuevo</button>
+
+        <!--v-if permite ocultar informacion y no se crean en la pagina (no renderiza)-->
+        <!--v-show permite ocultar informacion pero se crean los elementos (si renderiza)-->
+        <ul>
+            <li v-for="({nombre, apellido, edad},index) in lista">
+                <h3 v-if="apellido">{{index+1}} - {{nombre}} - {{apellido}} - {{edad}}</h3>
+            </li>
+        </ul>
+    </div>
+    <script src="../js/estudianteFinal.js"></script>
+</body>
+</html>
